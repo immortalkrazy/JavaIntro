@@ -53,6 +53,7 @@ public class Student_Marks {
             }
 
             while (result);
+            input.close();
       }// end of main method
 
 }// end of class
