@@ -14,6 +14,7 @@ public class PrintCalander {
 
             printMonth(year, month);
 
+            kb.close();
       }
 
       public static void printMonth(int year, int month) {
@@ -81,7 +82,7 @@ public class PrintCalander {
             int numberOfDaysInMonth = getNumberOfDaysInMonth(year, month);
             int i = 0;
             for (i = 0; i < startDay; i++) {
-                  System.out.print("   ");
+                  System.out.print(" ");
             }
             for (i = 1; i <= numberOfDaysInMonth; i++) {
                   System.out.printf("%4d", i);
