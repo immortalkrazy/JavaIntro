@@ -77,22 +77,30 @@ public class PrintCalander {
 
       }
 
+      /** Print month body */
       public static void printMonthBody(int year, int month) {
+            // Get start day of the week for the first date in the month
             int startDay = getStartDay(year, month);
+
+            // Get number of days in the month
             int numberOfDaysInMonth = getNumberOfDaysInMonth(year, month);
+
+            // Pad space before the first day of the month
             int i = 0;
-            for (i = 0; i < startDay; i++) {
-                  System.out.print("   ");
-            }
+            for (i = 0; i < startDay; i++)
+                  System.out.print("    ");
+
             for (i = 1; i <= numberOfDaysInMonth; i++) {
                   System.out.printf("%4d", i);
-                  if ((i + startDay) % 7 == 0) {
+
+                  if ((i + startDay) % 7 == 0)
                         System.out.println();
-                  }
             }
+
             System.out.println();
       }
 
+      /** Get the start day of month/1/year */
       public static int getStartDay(int year, int month) {
             final int START_DAY_FOR_JAN_1_1800 = 3;
             // Get total number of days from 1/1/1800 to month/1/year
