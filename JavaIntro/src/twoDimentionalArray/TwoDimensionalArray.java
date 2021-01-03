@@ -6,6 +6,7 @@ public class TwoDimensionalArray {
             // TODO Auto-generated method stub
             System.out.println();
             int[][] matrix = new int[10][10];
+            System.out.println();
       }
 
 }
