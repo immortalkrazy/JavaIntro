@@ -1,4 +1,4 @@
-package Inter;
+package codingQuest;
 
 import java.util.Scanner;
 
