@@ -53,4 +53,12 @@ public class PyramidOfNumbers {
             }
       }
 
+      public static void pyramidTHREE(int rows) {
+
+      }
+
+      public static void pyramidFour(int rows) {
+
+      }
+
 }
