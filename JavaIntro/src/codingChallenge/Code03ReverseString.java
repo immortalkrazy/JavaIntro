@@ -7,6 +7,10 @@ public class Code03ReverseString {
             String str = "Hello World!";
             System.out.println(reverseWithStringBuilder(str));
             System.out.println(reverseManually(str));
+            StringBuilder sb = new StringBuilder(str);
+            String st = " Hi";
+            sb.append(st);
+            System.out.println(sb);
       }
 
       private static String reverseWithStringBuilder(String str) {
