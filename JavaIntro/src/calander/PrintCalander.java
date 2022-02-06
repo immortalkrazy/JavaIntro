@@ -1,50 +1,46 @@
-package Calander;
+package calander;
 
 import java.util.Scanner;
 
-public class PrintCalendar2 {
-      /** Main method */
+public class PrintCalander {
+
       public static void main(String[] args) {
-            Scanner input = new Scanner(System.in);
+            int year, month;
+            Scanner kb = new Scanner(System.in);
+            System.out.println("Please enter the year (eg. 2001): ");
+            year = kb.nextInt();
+            System.out.println("Please enter the month (1 to 12): ");
+            month = kb.nextInt();
 
-            // Prompt the user to enter year
-            System.out.print("Enter full year (e.g., 2001): ");
-            int year = input.nextInt();
-
-            // Prompt the user to enter month
-            System.out.print("Enter month in number between 1 and 12: ");
-            int month = input.nextInt();
-
-            // Print calendar for the month of the year
             printMonth(year, month);
-            input.close();
+
+            kb.close();
       }
 
-      /** Print the calendar for a month in a year */
       public static void printMonth(int year, int month) {
-            // Print the headings of the calendar
+
             printMonthTitle(year, month);
-
-            // Print the body of the calendar
             printMonthBody(year, month);
+
       }
 
-      /** Print the month title, e.g., May, 1999 */
       public static void printMonthTitle(int year, int month) {
-            System.out.println("         " + getMonthName(month) + " " + year);
-            System.out.println("-----------------------------");
+
+            System.out.println("          " + getMonthName(month) + "     " + year);
+            System.out.println("----------------------------------");
             System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
+
       }
 
-      /** Get the English name for the month */
       public static String getMonthName(int month) {
+
             String monthName = "";
             switch (month) {
             case 1:
                   monthName = "January";
                   break;
             case 2:
-                  monthName = "February";
+                  monthName = "Feburary";
                   break;
             case 3:
                   monthName = "March";
@@ -75,9 +71,10 @@ public class PrintCalendar2 {
                   break;
             case 12:
                   monthName = "December";
+                  break;
             }
-
             return monthName;
+
       }
 
       /** Print month body */
@@ -113,40 +110,36 @@ public class PrintCalendar2 {
             return (totalNumberOfDays + START_DAY_FOR_JAN_1_1800) % 7;
       }
 
-      /** Get the total number of days since January 1, 1800 */
       public static int getTotalNumberOfDays(int year, int month) {
             int total = 0;
-
-            // Get the total days from 1800 to 1/1/year
-            for (int i = 1800; i < year; i++)
-                  if (isLeapYear(i))
+            for (int i = 1800; i < year; i++) {
+                  if (isLeapYear(i)) {
                         total = total + 366;
-                  else
+                  } else {
                         total = total + 365;
-
-            // Add days from Jan to the month prior to the calendar month
-            for (int i = 1; i < month; i++)
+                  }
+            }
+            for (int i = 1; i < month; i++) {
                   total = total + getNumberOfDaysInMonth(year, i);
-
+            }
             return total;
       }
 
-      /** Get the number of days in a month */
       public static int getNumberOfDaysInMonth(int year, int month) {
-            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
                   return 31;
-
-            if (month == 4 || month == 6 || month == 9 || month == 11)
+            }
+            if (month == 4 || month == 6 || month == 9 || month == 11) {
                   return 30;
-
-            if (month == 2)
+            }
+            if (month == 2) {
                   return isLeapYear(year) ? 29 : 28;
-
-            return 0; // If month is incorrect
+            }
+            return 0;
       }
 
-      /** Determine if it is a leap year */
       public static boolean isLeapYear(int year) {
-            return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+            return year % 4 == 0 || (year % 4 == 0 && year % 100 != 0);
       }
+
 }
